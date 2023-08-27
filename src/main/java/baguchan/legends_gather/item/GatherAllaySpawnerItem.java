@@ -55,7 +55,7 @@ public class GatherAllaySpawnerItem extends Item {
             return living.isReturnOwner(player);
         });
 
-        if (entityhitresult != null && getAllay(itemstack) < 4) {
+        if (entityhitresult != null && getCapturedAllay(itemstack) < 4) {
             Entity entity = entityhitresult.getEntity();
             if(entity instanceof Allay allay){
                 if (!level.isClientSide) {
@@ -79,7 +79,7 @@ public class GatherAllaySpawnerItem extends Item {
 
             Vec3 pos = hitResult.getLocation();
             if (hitResult.getType() != HitResult.Type.MISS && !player.isShiftKeyDown()) {
-                if (getAllay(itemstack) > 0) {
+                if (getCurrentAllay(itemstack) > 0) {
 
                     hitResult = BlockHitResult.miss(pos, Direction.getNearest(vec3.x, vec3.y, vec3.z), BlockPos.containing(pos));
 
@@ -120,7 +120,7 @@ public class GatherAllaySpawnerItem extends Item {
     }
 
     public void appendHoverText(ItemStack p_40880_, @Nullable Level p_40881_, List<Component> p_40882_, TooltipFlag p_40883_) {
-        p_40882_.add(Component.literal(getAllay(p_40880_) + "Gather Allays"));
+        p_40882_.add(Component.literal(getCurrentAllay(p_40880_) + "Gather Allays"));
 
         super.appendHoverText(p_40880_, p_40881_, p_40882_, p_40883_);
     }
@@ -134,6 +134,7 @@ public class GatherAllaySpawnerItem extends Item {
         }
 
         compoundtag.putInt("Allays", i);
+        compoundtag.putInt("CapturedAllays", i);
     }
 
     public static void setAllay(ItemStack p_40885_, int allay) {
@@ -155,10 +156,19 @@ public class GatherAllaySpawnerItem extends Item {
        return false;
     }
 
-    public static int getAllay(ItemStack p_40885_) {
+    public static int getCurrentAllay(ItemStack p_40885_) {
         CompoundTag compoundtag = p_40885_.getOrCreateTag();
         if(compoundtag.contains("Allays")){
          return compoundtag.getInt("Allays");
+        }
+
+        return 0;
+    }
+
+    public static int getCapturedAllay(ItemStack p_40885_) {
+        CompoundTag compoundtag = p_40885_.getOrCreateTag();
+        if (compoundtag.contains("CapturedAllays")) {
+            return compoundtag.getInt("CapturedAllays");
         }
 
         return 0;

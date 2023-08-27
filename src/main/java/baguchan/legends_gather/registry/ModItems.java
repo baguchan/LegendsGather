@@ -11,5 +11,6 @@ public class ModItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, LegendsGather.MODID);
 
     public static final RegistryObject<Item> ALLAY_SPAWNER = ITEMS.register("gather_allay_spawner", () -> new GatherAllaySpawnerItem((new Item.Properties())));
+    public static final RegistryObject<Item> VEX_SCRIPT = ITEMS.register("vex_script", () -> new Item((new Item.Properties())));
 
 }

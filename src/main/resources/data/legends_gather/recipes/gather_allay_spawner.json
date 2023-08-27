@@ -1,19 +1,19 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "XFX",
-    "XSX",
+    "XVX",
+    "XPX",
     "XXX"
   ],
   "key": {
-    "F": {
-      "item": "minecraft:fire_charge"
-    },
-    "S": {
-      "item": "minecraft:soul_sand"
+    "P": {
+      "item": "minecraft:iron_pickaxe"
     },
     "X": {
       "item": "minecraft:iron_ingot"
+    },
+    "V": {
+      "item": "legends_gather:vex_script"
     }
   },
   "result": {

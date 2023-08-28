@@ -24,6 +24,8 @@ public class GatherBlocks extends Behavior<AbstractWorkerAllay> {
     private BlockPos maxPos;
     private BlockPos currentBlockPos;
 
+    public static final int RANGE = 2;
+
     public GatherBlocks(float p_275357_) {
         super(ImmutableMap.of(ModMemorys.WORK_POS.get(), MemoryStatus.VALUE_PRESENT), 2400);
         this.speedMultiplier = p_275357_;
@@ -38,8 +40,8 @@ public class GatherBlocks extends Behavior<AbstractWorkerAllay> {
         this.workOver = false;
         Brain<?> brain = p_147400_.getBrain();
         GlobalPos globalPos = brain.getMemory(ModMemorys.WORK_POS.get()).get();
-        minPos = globalPos.pos().offset(-2, -2, -2);
-        maxPos = globalPos.pos().offset(2, 2, 2);
+        minPos = globalPos.pos().offset(-RANGE, -RANGE, -RANGE);
+        maxPos = globalPos.pos().offset(RANGE, RANGE, RANGE);
     }
 
     protected void stop(ServerLevel p_217118_, AbstractWorkerAllay p_217119_, long p_217120_) {

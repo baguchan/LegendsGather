@@ -3,6 +3,7 @@ package baguchan.legends_gather.item;
 import baguchan.legends_gather.entity.GatherAllay;
 import baguchan.legends_gather.registry.ModEntities;
 import baguchan.legends_gather.registry.ModMemorys;
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.GlobalPos;
@@ -120,7 +121,7 @@ public class GatherAllaySpawnerItem extends Item {
     }
 
     public void appendHoverText(ItemStack p_40880_, @Nullable Level p_40881_, List<Component> p_40882_, TooltipFlag p_40883_) {
-        p_40882_.add(Component.literal(getCurrentAllay(p_40880_) + "Gather Allays"));
+        p_40882_.add(Component.literal(getCapturedAllay(p_40880_) + "").withStyle(ChatFormatting.DARK_AQUA).append(" ").append(Component.translatable("item.legends_gather.gather_allay_spawner.tooltip")));
 
         super.appendHoverText(p_40880_, p_40881_, p_40882_, p_40883_);
     }

@@ -38,4 +38,5 @@ public class LegendsGather
     private void commonSetup(final FMLCommonSetupEvent event)
     {
     }
+
 }

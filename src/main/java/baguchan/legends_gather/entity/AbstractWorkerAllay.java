@@ -43,6 +43,13 @@ public abstract class AbstractWorkerAllay extends PathfinderMob implements Inven
         return InteractionResult.SUCCESS;
     }
 
+    public void aiStep() {
+        super.aiStep();
+        if (!this.level().isClientSide && this.isAlive() && this.tickCount % 10 == 0) {
+            this.heal(1.0F);
+        }
+    }
+
     public void travel(Vec3 p_218382_) {
         if (this.isControlledByLocalInstance()) {
             if (this.isInWater()) {

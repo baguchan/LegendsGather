@@ -1,5 +1,6 @@
 {
   "entity.legends_gather.gather_allay": "Gather Allay",
   "item.legends_gather.gather_allay_spawner": "Gather Allay Spawner",
-  "item.legends_gather.vex_script": "Vex Script"
+  "item.legends_gather.vex_script": "Vex Script",
+  "item.legends_gather.gather_allay_spawner.tooltip": "Allays"
 }
